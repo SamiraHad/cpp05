@@ -17,21 +17,19 @@ Bureaucrat::Bureaucrat():_name("B"), _grade(150)
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
     std::cout << "Bureaucrat copy constructor called" << std::endl;
     if(grade < 1)
         throw GradeTooHighException();
     if(grade > 150)
         throw GradeTooLowException();
-    _grade = grade;
 }
 
 
-Bureaucrat::Bureaucrat( const Bureaucrat& other): _name(other._name) 
+Bureaucrat::Bureaucrat( const Bureaucrat& other): _name(other._name), _grade(other._grade)
 {
     std::cout << "Bureaucrat copy constructor called" << std::endl;
-    _grade = other._grade;
 }
 Bureaucrat& Bureaucrat::operator=( const Bureaucrat& other)
 {
