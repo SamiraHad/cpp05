@@ -21,7 +21,7 @@ int main()
 {
     try
     {
-        Bureaucrat sam("sam", 10);
+        Bureaucrat sam("sam", 3);
         std::cout << sam << std::endl;
 
         sam.incrementGrade();

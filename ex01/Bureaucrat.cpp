@@ -19,14 +19,13 @@ Bureaucrat::Bureaucrat():_name("B"), _grade(150)
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
     if(grade < 1)
         throw GradeTooHighException();
     if(grade > 150)
         throw GradeTooLowException();
-    _grade = grade;
 }
 
 
