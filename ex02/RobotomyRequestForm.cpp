@@ -27,10 +27,9 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRe
     std::cout << "RobotomyRequestForm constructor called" << std::endl;   
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other), _target(other._target)
 {
-    std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
-    *this = other;   
+    std::cout << "RobotomyRequestForm copy constructor called" << std::endl;  
 } 
 
 RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& other) 
@@ -52,7 +51,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         throw AForm:: FormNotSignedException();
     if(executor.getGrade() > getGradeExec())
         throw AForm::GradeTooLowException();
-    std::cout << "*Drilling noises*" << std::endl;
+    std::cout << "* bzzzzz.....Drilling noises... *" << std::endl;
     if(rand() % 2 == 0)
         std::cout << _target << " has been robotomized successfully" << std::endl;
     else

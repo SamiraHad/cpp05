@@ -27,10 +27,9 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
     std::cout << "PresidentialPardonForm constructor called" << std::endl;   
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), _target(other._target)
 {
     std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
-    *this = other;   
 } 
 
 PresidentialPardonForm& PresidentialPardonForm::operator=( const PresidentialPardonForm& other) 
