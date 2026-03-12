@@ -29,12 +29,6 @@ class Intern
         Intern& operator=( const Intern& other);
         ~Intern();
         AForm* makeForm(std::string name, std::string target);
-        
-        class FormNotExistException : public std::exception
-        {
-            public:
-                const char* what() const throw();
-        };
 };
 
 #endif

@@ -11,53 +11,17 @@
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    try  //ShrubberyCreationForm : 145 gradeSign et 137 gradeExcec
-    {
-        Bureaucrat a("A", 40);
-        ShrubberyCreationForm garden("garden");
-        a.signForm(garden);
-        a.executeForm(garden);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    std::cout << std::endl;
-
-    try  //RobotomyRequestForm : 72 gradeSign et 45 execGrade 
-    {
-        Bureaucrat b("B", 1);
-        RobotomyRequestForm robot("robot");
-        b.signForm(robot);
-        b.executeForm(robot);
-    }
-
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << std::endl;
-    try  //PresidentialPardonForm : signGrade 25 et 5 gradeExcec
-    {
-        Bureaucrat c("B", 20);
-        PresidentialPardonForm pardon("Olivier");
-        c.signForm(pardon);
-        c.executeForm(pardon);
-    }
-
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
+    Intern someRandomIntern;
+    AForm* rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    delete rrf;
     return 0;
 }
 

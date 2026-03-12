@@ -42,20 +42,32 @@ Intern::~Intern()
 
 AForm* Intern::makeForm(std::string name, std::string target)
 { 
-    try
-    {
-       name == "ShrubberyCreationForm" || name == "RobotomyRequestForm" || name == "PresidentialPardonForm"
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    // un tableau de pointeurs sur AForm qui contient les noms de formulaires
+    std::string forms[3] = {"shrubbery creation",
+                            "robotomy request",
+                            "presidential pardon"};
     
-}
+    //un tableau de fonctions qui créent les formulaires
+    AForm* formsCreated[3] = { new ShrubberyCreationForm(target),
+                               new RobotomyRequestForm(target),
+                               new PresidentialPardonForm(target)};
+    for(int i = 0; i < 3; i++)
+    {
+        //on cherche le bon index
+        if(name == forms[i])
+        {
+            std::cout << "Intern creates " << forms[i] << std::endl;
+            //delete les 2 autres fonctions
+            for (int j = 0; j < 3; j++)
+                if (j != i)
+                    delete formsCreated[j];
+            return formsCreated[i];
+        }
+    }
+    std::cout << "Intern cannot create " << name << std::endl;
 
+    for(int i = 0; i < 3; i++)
+        delete formsCreated[i];
 
-
-const char* Intern::FormNotExistException::what() const throw()
-{
-    return("Intern cannot create");
+    return NULL;
 }
